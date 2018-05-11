@@ -4,11 +4,24 @@ console.log('Primitive Data Types');
 // Объявите переменную days и проинициализируйте ее числом от 1 до 10.
 // Преобразуйте это число в количество секунд и выведите в консоль.
 
+const days = 7;
+const secs = days * 24 * 60* 60;
+console.log(`${days} days is ${secs} seconds of your life`);
+
 
 
 // Task 02
 // Объявите две переменные: admin и name. Установите значение переменной name
 // в ваше имя. Скопируйте это значение в переменную admin и выведите его в консоль.
+
+let admin;
+let name;
+
+name = 'Alex';
+admin = name;
+
+console.log(admin);
+
 
 
 
@@ -18,11 +31,31 @@ console.log('Primitive Data Types');
 // Объявите переменную min и вычислите минимальное значение переменных a, b, c.
 // Выведите результат в консоль.
 
+let a;
+let b;
+let c;
+
+a = 10;
+b = 2;
+c = 5;
+
+const result = a + b + c;
+const min = Math.min(a, b, c);
+
+console.log(min);
+
+
+
 
 
 // Task 04
 // Объявите три переменных: hour, minute, second. Присвойте им следующие значения:
 // 10, 40, 25. Выведите в консоль время в формате 10:40:25.
+
+const hour = 10;
+const minute = 40;
+const second = 25;
+console.log(`${hour}:${minute}:${second}`);
 
 
 
@@ -30,6 +63,8 @@ console.log('Primitive Data Types');
 // Объявите переменную minute и проинициализируйте ее целым числом.
 // Вычислите к какой четверти принадлежит это число и выведите в консоль.
 
+const minute105 = 140;
+console.log(Math.ceil((minute105 % 60) / 15));  // works for minutes over 60
 
 
 // Task 06
@@ -37,12 +72,19 @@ console.log('Primitive Data Types');
 // первый товар - 0.10 USD, второй - 0.20 USD
 // Вычислите сумму и выведите в консоль. Используйте toFixed()
 
+const price1 = 0.1
+const price2 = 0.2
+console.log((price1 + price2).toFixed(2));
+
 
 
 // Task 07
 // Объявите переменную a.
 // Если значение переменной равно 0, выведите в консоль "True", иначе "False".
 // Проверьте, что будет появляться в консоли для значений 1, 0, -3.
+
+const a_107 = 0;
+console.log(!a_107);    // true
 
 
 
@@ -52,21 +94,55 @@ console.log('Primitive Data Types');
 // и выведите в консоль.
 // Данные для тестирования: 2, 5 и 3, 1.
 
+const a_108 = 2;
+const b_108 = 3;
+const result_108 = a_108 + b_108;
+console.log(result_108 > 5 ? result_108 : result_108 * 10);
+
 
 
 // Task 09
 // Объявите переменную month и проинициализируйте ее числом от 1 до 12.
 // Вычислите время года и выведите его в консоль.
 
+const month_109 = 5;
+
+if ([1,2,12].includes(month_109)) {
+  console.log('winter');
+} else if (month_109 < 6) {
+  console.log('spring');
+} else if (month_109 < 9) {
+  console.log('summer');
+} else if (month_109 < 12) {
+  console.log('fall');
+} else {
+  console.log('WAT');
+}
+
 
 
 // Task 10
 // Выведите в консоль все числа от 1 до 10.
 
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+
 
 
 // Task 11
 // Выведите в консоль все четные числа от 1 до 15.
+
+for (let i = 2; i < 15; i += 2) {
+  console.log(i);
+}
+
+for (let i = 1; i < 15; i++) {
+  if (!(i % 2)) {   // MUST use parentesis: !(i % 2); this won't work: if (!i%2)
+    console.log(i);
+  }
+}
+
 
 
 
@@ -78,6 +154,10 @@ console.log('Primitive Data Types');
 // xxxx
 // ...
 
+for (let i = 0; i < 10; i++) {
+  console.log('x'.repeat(i+1));
+}
+
 
 
 // Task 13
@@ -88,10 +168,17 @@ console.log('Primitive Data Types');
 // 4444
 // ...
 
+for (let i = 1; i < 10; i++) {
+  console.log(`${i}`.repeat(i));
+}
+
 
 
 // Task 14
 // Запросите у пользователя какое либо значение и выведите его в консоль.
+
+// const answer = prompt('Please enter something', 'default');
+// console.log(answer);
 
 
 
@@ -102,6 +189,12 @@ console.log('Primitive Data Types');
 // } else {
 //   result = 'Много';
 // }
+
+// const result = (a + b < 4) ? 'Мало' : 'Много' ;
+const a_115 = 2;
+const b_115 = 1;
+const result_115 = (a_115 + b_115 < 4) ? 'Мало' : 'Много' ;
+console.log(result_115);
 
 
 
@@ -118,6 +211,24 @@ console.log('Primitive Data Types');
 //   message = '';
 // }
 
+const login = 'Директор';
+let message;
+
+login == 'Вася'
+  ? message = 'Привет'
+  : (
+    login == 'Директор'
+      ? message = 'Здравствуйте'
+      : (
+        login == ''
+          ? message = 'Нет логина'
+          : message = ''
+      )
+  );
+
+console.log(message);
+
+
 
 
 // Task 17
@@ -126,6 +237,14 @@ console.log('Primitive Data Types');
 //   alert( "номер " + i + "!" );
 // }
 
+{
+  let i = 0;
+  while (i < 3) {
+    console.log(`номер ${i}!`);   // alert()
+    i++;
+  }
+}
+
 
 // Task 18
 // Напишите цикл, который предлагает prompt ввести число, большее 100.
@@ -133,6 +252,14 @@ console.log('Primitive Data Types');
 // Цикл должен спрашивать число пока либо посетитель не введёт число,
 // большее 100, либо не нажмёт кнопку Cancel (ESC).
 // Предусматривать обработку нечисловых строк в этой задаче необязательно.
+
+{
+  // let num = 0;
+  // while(num !== null && num < 100) {  // cancel returns null
+  //   num = +prompt('Enter a number over 100');
+  // }
+}
+
 
 
 
@@ -149,6 +276,22 @@ console.log('Primitive Data Types');
 //   alert( '2,3' );
 // }
 
+{
+  // const a = +prompt('a?', '');
+  // switch (a) {
+  //   case 0:
+  //     alert(0);
+  //     break;
+  //   case 1:
+  //     alert(1);
+  //     break;
+  //   case 2:
+  //   case 3:
+  //     alert('2,3');
+  // }
+}
+
+
 
 // Task 20
 // Объявите переменную и проинициализируйте ее строчным значением в переменном
@@ -158,12 +301,30 @@ console.log('Primitive Data Types');
 // Выведите результат работы в консоль
 // Используйте: toUpperCase/toLowerCase, slice.
 
+{
+  const string = 'таООооОддОО';
+
+  const capitalize = (str) => `${str.slice(0, 1).toUpperCase()}${str.slice(1).toLowerCase()}`;
+
+  console.log(capitalize(string));  // 'Таоооооддоо'
+}
+
+
 
 
 // Task 21
 // Напишите код, который выводит в консоль true, если строка str содержит
 // „viagra“ или „XXX“, а иначе false.
 // Тестовые данные: 'buy ViAgRA now', 'free xxxxx'
+
+{
+  const nasty = (str) => str.toLowerCase().includes('viagra') || str.toLowerCase().includes('xxx');
+
+  console.log(nasty('buy ViAgRA now'));   // true
+  console.log(nasty('free xxxxx'));       // true
+  console.log(nasty('pink unicorn'));     // false
+}
+
 
 
 
@@ -176,13 +337,38 @@ console.log('Primitive Data Types');
 //  "Вот, что мне хотелось бы сказать на эту тему:", 20
 //  "Всем привет!", 20
 
+{
+  const trim = (str, len) => {
+    const end = '...';
+    return str.length > len ? `${str.slice(0, len - end.length)}${end}` : str;
+  }
+  console.log(trim('Вот, что мне хотелось бы сказать на эту тему:', 20));
+  console.log(trim('Всем привет!', 20));
+}
+
+
 
 
 // Task 23
 // Напишите код, который из строки $100 получит число и выведите его в консоль.
 
+{
+  const str = '$100';
+  console.log(+str.match(/\d+/g, str));     // Number(str.match(/\d+/g, str))
+}
+
+
 
 // Task 24
 // Напишите код, который проверит, является ли переменная промисом
+
+{
+  const p = Promise.resolve();    // const p = new Promise(resolve => resolve())
+  console.log(typeof p.then === 'function');  // true - check that it is then-able, has then method
+  console.log(Promise.resolve(p) === p);      // true - another way:
+                                              // Promise.resolve() always returns the link to the
+                                              // original object itself if it is a promise
+}
+
 
 

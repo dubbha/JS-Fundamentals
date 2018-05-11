@@ -60,8 +60,8 @@ const take = (sequence, amount) => {
   return arr;
 }
 
-const a = [...take(random, 3)];
-console.log(a);
+const subsequence = [...take(random, 3)];
+console.log(subsequence);
 
 
 
@@ -71,31 +71,70 @@ console.log(a);
 // EN: Create iterable iterator, which produces Fibonacci numbers
 //     Implement method return, which allows you to stop iterator using for-of + break
 
-const Fib = {
-  [Symbol.iterator]() {
-    let a1 = 1;
-    let a2 = 1;
-    let cur;
+const Fib = {           // http://exploringjs.com/es6/ch_iteration.html#_iterators-that-are-iterable
+  a1: 1,
+  a2: 1,
+
+  next() {              // iterator - The Iterator interface requires the implementation of a next method.
+    cur = this.a1;
+    this.a1 = this.a2;
+    this.a2 = cur + this.a1;
 
     return {
-      next() {
-        cur = a1;
-        a1 = a2;
-        a2 = cur + a1;
-
-        return {
-          value: cur,
-          done: false,
-        }
-      }
+      value: cur,
+      done: false,
     }
+  },
+
+  [Symbol.iterator]() { // iterable - The Iterable interface requires the implementation of a [Symbol.iterator] method;
+    return this;
+  },
+
+  return() {  // http://exploringjs.com/es6/ch_iteration.html#_optional-iterator-methods-return-and-throw
+    // you could clean up some external resources here
+    return { done: true };
   }
 };
 
-for (let v of Fib) {
+Fib[Symbol.iterator]() === Fib;   // true -- an iterable iterator pattern
+
+for (let v of Fib) {      // 3 ... 8
   console.log(v);
-  if (v > 50) break;
+  if (v > 5) break;      // break method resets the counter
 }
+
+console.log('because iterator is iterable, you can continue an iteration in another loop');
+
+for (let v of Fib) {      // 13 ... 55
+  console.log(v);
+  if (v > 50) break;      // break method resets the counter
+}
+
+// Another school way to do the same (using internal [Symbol.iterator]() and )
+const Fib = {
+  a1: 1,
+  a2: 1,
+
+  next() {              // iterator - The Iterator interface requires the implementation of a next method.
+    cur = this.a1;
+    this.a1 = this.a2;
+    this.a2 = cur + this.a1;
+
+    return {
+      value: cur,
+      done: false,
+    }
+  },
+
+  [Symbol.iterator]() { // iterable - The Iterable interface requires the implementation of a [Symbol.iterator] method;
+    return this;
+  },
+
+  return() {  // http://exploringjs.com/es6/ch_iteration.html#_optional-iterator-methods-return-and-throw
+    // you could clean up some external resources here
+    return { done: true };
+  }
+};
 
 
 
@@ -120,4 +159,3 @@ Number.prototype[Symbol.iterator] = function() {
 
 console.log([...-5]);
 console.log([...5]);
-
