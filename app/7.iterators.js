@@ -71,11 +71,14 @@ console.log(subsequence);
 // EN: Create iterable iterator, which produces Fibonacci numbers
 //     Implement method return, which allows you to stop iterator using for-of + break
 
-const Fib = {           // http://exploringjs.com/es6/ch_iteration.html#_iterators-that-are-iterable
+// http://exploringjs.com/es6/ch_iteration.html#_iterators-that-are-iterable
+// http://jsrocks.org/2015/09/javascript-iterables-and-iterators
+
+const Fib = {
   a1: 1,
   a2: 1,
 
-  next() {              // iterator - The Iterator interface requires the implementation of a next method.
+  next() {              // iterator - The Iterator interface requires the implementation of a next() method.
     cur = this.a1;
     this.a1 = this.a2;
     this.a2 = cur + this.a1;
@@ -86,7 +89,7 @@ const Fib = {           // http://exploringjs.com/es6/ch_iteration.html#_iterato
     }
   },
 
-  [Symbol.iterator]() { // iterable - The Iterable interface requires the implementation of a [Symbol.iterator] method;
+  [Symbol.iterator]() { // iterable - The Iterable interface requires the implementation of a [Symbol.iterator]() method;
     return this;
   },
 
