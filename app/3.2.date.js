@@ -45,9 +45,9 @@ console.log('Object Date');
   const curMonthFirstDay = new Date(year, month, 1);
   const curMonthLastDay = new Date(year, month + 1, 0);   // zeroth day next month == last day of current month
 
-  console.log(tomorrow);
-  console.log(curMonthFirstDay);
-  console.log(curMonthLastDay);
+  console.log(`${'tomorrow'.padEnd(18)} ${tomorrow}`);
+  console.log(`${'curMonthFirstDay'.padEnd(18)} ${curMonthFirstDay}`);
+  console.log(`${'curMonthLastDay'.padEnd(18)} ${curMonthLastDay}`);
 }
 
 // Task 4
