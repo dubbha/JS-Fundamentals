@@ -4,7 +4,7 @@ console.log('Arrays');
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-# Array.prototype methods
+# Array.prototype methods (available on instances)
 
 Array.prototype.forEach()    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
@@ -44,7 +44,7 @@ Array.prototype.fill()          https://developer.mozilla.org/en-US/docs/Web/Jav
 Array.prototype.copyWithin()    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin
 
 
-#  Array methods (not on prototype)
+#  Array constructor methods (not on prototype or instances)
 
 Array.of()          https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of
 Array.from()        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
