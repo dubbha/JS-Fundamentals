@@ -101,6 +101,8 @@ http://learn.javascript.ru/datetime
 
 // Using performance.now()
 // exists in browsers, much more accurate due to higher precision [preferred]
+// Note: browsers now artificially decrease the accuracy of performance.now() due to attacks like Spectre
+// https://spectreattack.com/spectre.pdf
 {
   let start;
   
@@ -151,7 +153,7 @@ http://learn.javascript.ru/datetime
   const arrayFillMapReduce = (num) =>
     Array(num).fill().map((e, i) => +i + 1).reduce((acc, e) => acc + e, 0);
 
-  const times = 15;                   // time to run the benchmark, the higher the better
+  const times = 5;                   // time to run the benchmark, the higher the better
   const num = 1000000;                // each function should sum up to this number
 
   let forLoopTotalTime = 0;           // total time all the runs took
