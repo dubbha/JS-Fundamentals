@@ -233,8 +233,7 @@ Array.isArray()     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
   console.log(rem);                               // 'Jazz'
   console.log(arr);                               // ['Classics', 'Rock-n-Roll']
 
-  arr.unshift('Reggae')
-  arr.unshift('Rap');
+  arr.unshift('Rap', 'Reggae');                   // note: the sequence is preserved
   console.log(arr);                               // ['Rap', 'Reggae', 'Classics', 'Rock-n-Roll']
 }
 
@@ -245,10 +244,13 @@ Array.isArray()     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 //     "dskjdhfkjshdfkjhsdkjureyteiruyiqywehjkh" and display them in the console.
 {
   const str = 'dskjdhfkjshdfkjhsdkjureyteiruyiqywehjkh';
-  const rs = Array.from(str).filter(e => e === 'r').length;
+  const rs = [...str].filter(e => e === 'r').length;
   const ks = Array.from(str).filter(e => e === 'k').length;
   const ts = str.split('').filter(e => e === 't').length;         // strings alternative to Array.from()
-  console.log(`Rs: ${rs}, Ks: ${ks}, Ts: ${ts}`);
+  const ds = str.split('d').length - 1;                           // also works if d is first or last
+  console.log(`Rs: ${rs}, Ks: ${ks}, Ts: ${ts}, Ds: ${ds}`);
+
+
 }
 
 // Task 10
